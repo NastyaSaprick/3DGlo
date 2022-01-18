@@ -3,3 +3,4 @@ import two from './modules/two'
 
 one()
 two()
+//npm run watch
