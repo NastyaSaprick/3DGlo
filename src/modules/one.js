@@ -16,4 +16,4 @@ class Second extends First {
 const test = new Second();
 
 test.hello();
-module.exports = one
+export default one
