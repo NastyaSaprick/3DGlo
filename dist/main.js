@@ -16,27 +16,17 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_one__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/one */ \"./src/modules/one.js\");\n/* harmony import */ var _modules_two__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/two */ \"./src/modules/two.js\");\n\r\n\r\n\r\n(0,_modules_one__WEBPACK_IMPORTED_MODULE_0__[\"default\"])()\r\n;(0,_modules_two__WEBPACK_IMPORTED_MODULE_1__[\"default\"])()\r\n//npm run watch\n\n//# sourceURL=webpack://3dglo/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_timer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/timer */ \"./src/modules/timer.js\");\n\r\n\r\n(0,_modules_timer__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('28 january 2022')\r\n//npm run watch\n\n//# sourceURL=webpack://3dglo/./src/index.js?");
 
 /***/ }),
 
-/***/ "./src/modules/one.js":
-/*!****************************!*\
-  !*** ./src/modules/one.js ***!
-  \****************************/
+/***/ "./src/modules/timer.js":
+/*!******************************!*\
+  !*** ./src/modules/timer.js ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\r\n\r\nclass First {\r\n  hello() {\r\n    console.log(\"Привет я метод родителя!\");\r\n  }\r\n}\r\n\r\nclass Second extends First {\r\n  hello() {\r\n    super.hello();\r\n    console.log(\"А я наследуемый метод!\");\r\n  }\r\n}\r\n\r\nconst test = new Second();\r\n\r\ntest.hello();\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (one);\n\n//# sourceURL=webpack://3dglo/./src/modules/one.js?");
-
-/***/ }),
-
-/***/ "./src/modules/two.js":
-/*!****************************!*\
-  !*** ./src/modules/two.js ***!
-  \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconsole.log('ghbdtn мир')\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (two);\n\n//# sourceURL=webpack://3dglo/./src/modules/two.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst timer = (deadline) => {\r\n  \r\n  const timerHours = document.getElementById('timer-hours')\r\n  const timerMinutes = document.getElementById('timer-minutes')\r\n  const timerSeconds = document.getElementById('timer-seconds')\r\n\r\n  const getTimeRemaining = () => {\r\n    \r\n    let dateStop = new Date(deadline).getTime()\r\n    let dateNow = new Date().getTime()\r\n    let timeRemaining = (dateStop - dateNow) / 1000\r\n    let hours = Math.floor(timeRemaining / 60 / 60)\r\n    let minutes = Math.floor((timeRemaining / 60) % 60)\r\n    let seconds = Math.floor(timeRemaining % 60)\r\n  \r\n    return { timeRemaining,hours, minutes, seconds }\r\n  }\r\n\r\n  const updateClock = () => {\r\n    let getTime = getTimeRemaining()\r\n    timerHours.textContent = getTime.hours\r\n    timerMinutes.textContent = getTime.minutes\r\n    timerSeconds.textContent = getTime.seconds\r\n\r\n    if (getTime.timeRemaining > 0) {\r\n      setTimeout(updateClock, 1000)\r\n    }\r\n  }\r\n  updateClock()\r\n  // getTimeRemaining('28 january 2022')\r\n  // setInterval(countTimer, 1000, '28 january 2022')\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (timer);\r\n\n\n//# sourceURL=webpack://3dglo/./src/modules/timer.js?");
 
 /***/ })
 
